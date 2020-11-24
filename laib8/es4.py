@@ -1,37 +1,36 @@
-lista1 = [1, 4, 9, 16, 9, 7, 4, 9, 11, 9]
-lista2 = [11, 11, 7, 9, 16, 4, 1, 7]
+import random as rd
+import time
+
+rd.seed(time.time())
 
 
-# def sameSet(lista1, lista2):
-#     condition = True
-#     for num in lista1:
-#         try:
-#             lista2.index(num)
-#         except:
-#             condition = False
-#     for num in lista2:
-#         try:
-#             lista1.index(num)
-#         except:
-#             condition = False
-#     return condition
-
-def sameSet(lista1, lista2):
-    togliDuplicati(lista1)
-    togliDuplicati(lista2)
+def main():
+    lista1 = [rd.randint(1, 100) for i in range(13)]
+    lista2 = [rd.randint(1, 100) for i in range(17)]
     lista1.sort()
     lista2.sort()
-    if lista1 == lista2:
-        return True
-    else:
-        return False
+    print(lista1)
+    print(lista2)
+    print(mergeSorted(lista1, lista2))
+    # confronto
+    lista1 = lista1 + lista2
+    lista1.sort()
+    print(lista1)
 
 
-def togliDuplicati(lista):
-    for num in lista:
-        for i in range(lista.count(num) - 1):
-            lista.remove(num)
-    return lista
+def mergeSorted(lista1, lista2):
+    newList = []
+    indexLista1 = 0
+    indexLista2 = 0
+    for index in range(len(lista1) + len(lista2)):
+        if ((lista1[indexLista1] < lista2[indexLista2]) or (indexLista2 == -1)) and \
+                (indexLista1 != - 1):
+            newList.append(lista1[indexLista1])
+            indexLista1 = indexLista1 + 1 if indexLista1 != len(lista1) - 1 else -1
+        else:
+            newList.append(lista2[indexLista2])
+            indexLista2 = indexLista2 + 1 if indexLista2 != len(lista2) - 1 else -1
+    return newList
 
 
-print(sameSet(lista1, lista2))
+main()

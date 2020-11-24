@@ -29,19 +29,19 @@ def testQuadratoMagico(values, dimension):
     printTabella(tabella)
     flag = True
     # tutti i numeri?
-    for num in range(1, 16):
+    for num in range(1, dimension ** 2):
         flag = num in values
         if flag == False:
             errore = "numeri sbagliati"
     # cicliamo
-    for row in range(4):
+    for row in range(dimension):
         # somma riga==34?
         if sum(tabella[row]) != int(((1 + dimension ** 2) * dimension ** 2) / (2 * dimension)):
             flag = False
             errore = "riga"
-        # somma colonne== 34?
+        # somma colonne== 34? Abiamo scambiato righe e colonne
         sommaColonne = 0
-        for column in range(4):
+        for column in range(dimension):
             sommaColonne += tabella[column][row]
         if sommaColonne != int(((1 + dimension ** 2) * dimension ** 2) / (2 * dimension)):
             flag = False

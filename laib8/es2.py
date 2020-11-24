@@ -31,7 +31,7 @@ def neighborAverage(tabella):
                     if (row + rowDelta in range(0, len(tabella))) and \
                             (column + columnDelta in range(0, len(tabella[row]))) and \
                             (rowDelta * 10 + columnDelta * 100 != 0):
-                        elementi.append(tabella[column + columnDelta][row + rowDelta])
+                        elementi.append(tabella[row + rowDelta][column + columnDelta])
             newTabella[row][column] = int(sum(elementi) / len(elementi))
     return newTabella
 

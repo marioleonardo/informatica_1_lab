@@ -1,0 +1,5 @@
+mario;corsa;20.54;12 giugno
+mario;corsa;20.54;12 giugno
+mario;corda;20.94;12 giugno
+mario;corda;20.94;12 giugno
+mario;corda;20.94;12 giugno

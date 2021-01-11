@@ -1,25 +1,26 @@
 import random
 
- 
+
 def main():
     mazzo = generateMazzo(listaCarte)
     mazzi = splitMazzo(mazzo, 2)
     punteggi = [0, 0]
     puntiTavolo = 0
     index = 0
-    while mazzi[0] != []:
-        index += 1
-        print("\nmano n°", index)
-        carte = estrazioneCarte(mazzi)
-        vincitore, puntiTemp = checkVittoria(carte, listaCarte)
-        if vincitore != -1:
-            punteggi[vincitore] += puntiTemp + puntiTavolo
-            puntiTavolo = 0
-        else:
-            puntiTavolo += puntiTemp
-        printPunteggi(punteggi)
-    print(f"\nvince il giocatore {punteggi.index(max(punteggi)) + 1} con {max(punteggi)} punti")
 
+    index += 1
+    print("\nmano n°", index)
+    carte = estrazioneCarte(mazzi)
+    vincitore, puntiTemp = checkVittoria(carte, listaCarte)
+    if vincitore != -1:
+        punteggi[vincitore] += puntiTemp + puntiTavolo
+        puntiTavolo = 0
+    else:
+        puntiTavolo += puntiTemp
+    printPunteggi(punteggi)
+
+
+print(f"\nvince il giocatore {punteggi.index(max(punteggi)) + 1} con {max(punteggi)} punti")
 
 listaCarte = [
     {
